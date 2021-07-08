@@ -21,7 +21,7 @@ def choix_menu(choix)
     elsif choix == 3
         small_handle(array)
     elsif choix == 4
-        caract_handle
+        caract_handle(array)
     elsif choix == 5
         start_maj_handle
     elsif choix == 6
@@ -55,15 +55,16 @@ end
 def small_handle(array)
         x = 0 
         puts "#{array.sort_by(&:length)[0]}"
-       # while array[x].length == array[0].length
+        # while array[x].length == array[0].length
         #    puts array[x]
-         #   x += 1
+        #   x += 1
         #end
         menu
 end
 
-def caract_handle
-    #
+def caract_handle(array)
+    puts "#{(array.select {|word| word.length == 6}).count}"
+    menu 
 end
 
 def start_maj_handle

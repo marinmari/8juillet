@@ -23,13 +23,13 @@ def choix_menu(choix)
     elsif choix == 4
         caract_handle(array)
     elsif choix == 5
-        start_maj_handle
+        start_maj_handle(array)
     elsif choix == 6
         sort_alpha
     elsif choix == 7
         sort_height
     elsif choix == 8
-        where_is_epenser 
+        where_is_epenser(array) 
     elsif choix == 9
         nbr_handle_height
     elsif choix == 10
@@ -55,10 +55,7 @@ end
 def small_handle(array)
         x = 0 
         puts "#{array.sort_by(&:length)[0]}"
-        # while array[x].length == array[0].length
-        #    puts array[x]
-        #   x += 1
-        #end
+        # bonus : rajouter un point count et ressortir tous les éléments qui ont la plus petite taille 
         menu
 end
 
@@ -67,8 +64,8 @@ def caract_handle(array)
     menu 
 end
 
-def start_maj_handle
-    #
+def start_maj_handle(array)
+    puts "Il y a #{array.count {|handle| /[[:upper:]]/.match(handle[1]) } } handles qui commenent par une majuscule"
 end
 
 def sort_alpha
@@ -79,8 +76,8 @@ def sort_height
     #
 end
 
-def where_is_epenser
-    #
+def where_is_epenser(array)
+    puts "epenser est à la position : #{array.index("@epenser")}"
 end
 
 def nbr_handle_height

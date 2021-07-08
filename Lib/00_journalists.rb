@@ -66,25 +66,31 @@ end
 
 def start_maj_handle(array)
     puts "Il y a #{array.count {|handle| /[[:upper:]]/.match(handle[1]) } } handles qui commencent par une majuscule"
+    menu
 end
 
 def sort_alpha(array)
     puts "Tableau dans l'ordre alphabétique : #{array.sort_by {|name| name[1]}}"
-    
+    menu 
 end
 
 def sort_height(array)
     puts "Tableau par grandeur de handle : #{array.sort_by(&:length)}}"
+    menu
 end
 
 def where_is_epenser(array)
     puts "epenser est à la position : #{array.index("@epenser")}"
+    menu
 end
 
 def nbr_handle_height(array)
-    n = (array.sort_by(&:length)[-1]).length
-    for i in 0 .. n do
-        puts "#{(array.count {|word| word.length == n})}"
+    n = (array.sort_by(&:length)[-1])
+    a = n.length
+    puts n
+    puts a
+    for i in 0 .. a do
+        puts "nombre de handle de taille #{i} : #{(array.count {|word| word.length == i })}"
     end
     menu
 end

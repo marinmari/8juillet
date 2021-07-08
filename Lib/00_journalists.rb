@@ -17,9 +17,9 @@ def choix_menu(choix)
     if choix == 1
         afficher(array)
     elsif choix == 2
-        nbr_handle 
+        nbr_handle(array) 
     elsif choix == 3
-        small_handle
+        small_handle(array)
     elsif choix == 4
         caract_handle
     elsif choix == 5
@@ -47,12 +47,19 @@ def afficher(liste)
     menu
 end
 
-def nbr_handle
-    #
+def nbr_handle(tableau)
+    puts "Nombre de Handles : #{tableau.count}"
+    menu 
 end
 
-def small_handle
-    #
+def small_handle(array)
+        x = 0 
+        puts "#{array.sort_by(&:length)[0]}"
+       # while array[x].length == array[0].length
+        #    puts array[x]
+         #   x += 1
+        #end
+        menu
 end
 
 def caract_handle

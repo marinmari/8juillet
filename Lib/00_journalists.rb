@@ -25,13 +25,13 @@ def choix_menu(choix)
     elsif choix == 5
         start_maj_handle(array)
     elsif choix == 6
-        sort_alpha
+        sort_alpha(array)
     elsif choix == 7
-        sort_height
+        sort_height(array)
     elsif choix == 8
         where_is_epenser(array) 
     elsif choix == 9
-        nbr_handle_height
+        nbr_handle_height(array)
     elsif choix == 10
         quit
     else 
@@ -65,23 +65,28 @@ def caract_handle(array)
 end
 
 def start_maj_handle(array)
-    puts "Il y a #{array.count {|handle| /[[:upper:]]/.match(handle[1]) } } handles qui commenent par une majuscule"
+    puts "Il y a #{array.count {|handle| /[[:upper:]]/.match(handle[1]) } } handles qui commencent par une majuscule"
 end
 
-def sort_alpha
-    #
+def sort_alpha(array)
+    puts "Tableau dans l'ordre alphabétique : #{array.sort_by {|name| name[1]}}"
+    
 end
 
-def sort_height
-    #
+def sort_height(array)
+    puts "Tableau par grandeur de handle : #{array.sort_by(&:length)}}"
 end
 
 def where_is_epenser(array)
     puts "epenser est à la position : #{array.index("@epenser")}"
 end
 
-def nbr_handle_height
-    #
+def nbr_handle_height(array)
+    n = (array.sort_by(&:length)[-1]).length
+    for i in 0 .. n do
+        puts "#{(array.count {|word| word.length == n})}"
+    end
+    menu
 end
 
 def quit 
